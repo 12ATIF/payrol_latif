@@ -12,4 +12,11 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+//✅ Route ini HANYA bisa diakses jika sudah login
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::view('employee', 'livewire.employee.index')->name('employee.index');
+    Route::get('editkaryawan', \App\Livewire\EmployeeManager::class)->name('employee.edit');
+});
+
+
+require __DIR__ . '/auth.php';
