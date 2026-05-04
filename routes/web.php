@@ -15,7 +15,7 @@ Route::view('profile', 'profile')
 //✅ Route ini HANYA bisa diakses jika sudah login
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('employee', 'livewire.employee.index')->name('employee.index');
-    Route::get('editkaryawan', \App\Livewire\EmployeeManager::class)->name('employee.edit');
+    Route::get('editkaryawan', \App\Livewire\Employee\EmployeeManager::class)->name('employee.edit');
 });
 
 
