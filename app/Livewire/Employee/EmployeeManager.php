@@ -18,6 +18,7 @@ class EmployeeManager extends Component
     public string $name = '';
     public string $phone = '';
     public string $position ='';
+    public string $address ='';
 
 
     // create/update data
@@ -31,6 +32,7 @@ class EmployeeManager extends Component
             'name' => 'required|min:3',
             'phone' => 'required',
             'position' => 'required|min:3',
+            'address' => 'required|min:5',
         ],[
             // Custom pesan error
             'nik.required' => 'NIK wajib diisi.',
@@ -40,6 +42,8 @@ class EmployeeManager extends Component
             'phone.required' => 'No. Telepon wajib diisi.',
             'position.required' => 'Jabatan wajib diisi.',
             'position.min' => 'Jabatan minimal 3 karakter.',
+            'address.required' => 'Alamat wajib diisi.',
+            'address.min' => 'Alamat minimal 5 karakter.',
         ]);
 
         //Simpan atau update data karyawan
@@ -51,6 +55,7 @@ class EmployeeManager extends Component
                 'name' => $this->name,
                 'phone' => $this->phone,
                 'position' => $this->position,
+                'address' => $this->address,
             ] // Data yang akan disimpan atau diupdate
         );
 
@@ -74,6 +79,8 @@ class EmployeeManager extends Component
         $this->nik         = $emp->nik;
         $this->name        = $emp->name;
         $this->position    = $emp->position;
+        $this->phone       = $emp->phone;
+        $this->address     = $emp->address;
         $this->isEditMode  = true;
     }
 
@@ -86,7 +93,7 @@ class EmployeeManager extends Component
 
     public function resetForm()
     {
-        $this->reset(['employee_id', 'nik', 'name', 'position', 'isEditMode']);
+        $this->reset(['employee_id', 'nik', 'name', 'phone', 'position', 'address', 'isEditMode']);
         $this->resetValidation();
     }
 

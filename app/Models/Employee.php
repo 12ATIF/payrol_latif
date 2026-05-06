@@ -11,6 +11,7 @@ class Employee extends Model
         'name',
         'phone',
         'position',
+        'address',
     ];
     // Satu karyawan bisa punya banyak slip gaji
     public function payrolls()

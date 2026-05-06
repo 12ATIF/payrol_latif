@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name'); //Nama Karyawan
             $table->string('phone'); //Nomor Telepon Karyawan
             $table->string('position'); //Jabatan Karyawan
+            $table->string('address'); //Alamat Karyawan
             $table->timestamps();
         });
     }

@@ -32,6 +32,11 @@
                 @error('nik') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
             </div>
             <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">No. Telepon</label>
+                <input type="text" wire:model.blur="phone" class="mt-1 block w-full rounded border-gray-300 shadow-sm" placeholder="Contoh: 08123456789">
+                @error('phone') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
+            </div>
+            <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700">Jabatan</label>
                 <select wire:model="position" class="mt-1 block w-full rounded border-gray-300 shadow-sm">
                     <option value="">-- Pilih Jabatan --</option>
@@ -40,6 +45,11 @@
                     <option value="Keuangan">Keuangan</option>
                 </select>
                 @error('position') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Alamat</label>
+                <textarea wire:model.blur="address" class="mt-1 block w-full rounded border-gray-300 shadow-sm" rows="3" placeholder="Masukkan alamat lengkap"></textarea>
+                @error('address') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
             </div>
 
             <div class="flex gap-2">
@@ -67,6 +77,7 @@
                     <th class="px-4 py-2 text-gray-500">NIK</th>
                     <th class="px-4 py-2 text-gray-500">Nama</th>
                     <th class="px-4 py-2 text-gray-500">Jabatan</th>
+                    <th class="px-4 py-2 text-gray-500">Alamat</th>
                     <th class="px-4 py-2 text-gray-500">Aksi</th>
                 </tr>
             </thead>
@@ -78,6 +89,7 @@
                         <td class="px-4 py-3">{{ $item->nik }}</td>
                         <td class="px-4 py-3 font-semibold">{{ $item->name }}</td>
                         <td class="px-4 py-3">{{ $item->position }}</td>
+                        <td class="px-4 py-3">{{ $item->address }}</td>
                         <td class="px-4 py-3">
                             <!-- Memanggil fungsi public yg ada di komponen PHP, disertai Parameter lemparan ID -->
                             <button wire:click="edit({{ $item->id }})" class="text-indigo-600 hover:underline mr-2">Edit</button>
