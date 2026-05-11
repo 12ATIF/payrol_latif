@@ -44,10 +44,10 @@ new class extends Component
                     <x-nav-link :href="route('payroll.calculator')" :active="request()->routeIs('payroll.calculator')" wire:navigate>
                         {{ __('Kalkulator Penggajian') }}
                     </x-nav-link>
-
-
-
-
+                    <!-- Navigation Riwayat Gaji -->
+                    <x-nav-link :href="route('payroll.history')" :active="request()->routeIs('payroll.history')" wire:navigate>
+                        {{ __('Riwayat Gaji') }}
+                    </x-nav-link>
                 </div>
             </div>
 
